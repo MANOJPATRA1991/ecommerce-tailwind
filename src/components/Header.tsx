@@ -3,7 +3,9 @@ import { BsBag } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { toggleSidebar } from "../slices/sidebar-slice";
+import { toggleFilterSidebar } from "../slices/filter-sidebar-slice";
 import Logo from "../img/logo.svg";
+import { FaFilter } from "react-icons/fa";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
@@ -35,6 +37,12 @@ const Header = () => {
             {cart.totalItems}
           </div>
         </div>
+        <button
+          className="fixed top-20 right-4 bg-gray-800 text-white p-3 rounded-full shadow-lg z-50"
+          onClick={() => dispatch(toggleFilterSidebar())}
+        >
+          <FaFilter size={20} />
+        </button>
       </div>
     </header>
   );

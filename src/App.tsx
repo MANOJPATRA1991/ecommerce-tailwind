@@ -5,6 +5,7 @@ import ProductDetails from './pages/ProductDetails';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import FilterSidebar from './components/FilterSidebar';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path='/product/:id' element={<ProductDetails />} />
         </Routes>
         <Sidebar />
+        <FilterSidebar />
         <Footer />
       </Router>
     </div>
