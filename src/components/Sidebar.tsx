@@ -12,7 +12,12 @@ const Sidebar = () => {
   const isOpen = useAppSelector((state) => state.sidebar.isOpen);
   const cart = useAppSelector((state) => state.cart);
   const products = useAppSelector((state) => state.products.entities);
+  const productIds = useAppSelector((state) => state.products.ids);
   const dispatch = useAppDispatch();
+
+  if (!productIds.length) {
+    return null;
+  }
 
   return (
     <div
