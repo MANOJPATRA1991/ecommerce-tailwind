@@ -14,10 +14,6 @@ const Home = () => {
     dispatch(fetchProducts());
   }, []);
 
-  useEffect(() => {
-    dispatch(updateFilteredProducts());
-  }, [products, dispatch]);
-
   if (productsExist) {
     return (
       <div>

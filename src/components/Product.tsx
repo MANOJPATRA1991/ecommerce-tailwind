@@ -11,7 +11,7 @@ type TProps = {
 
 const Product = ({ product }: TProps) => {
   const dispatch = useAppDispatch();
-  const { id, image, category, title, price, rating } = product;
+  const { id, thumbnail, category, title, price, rating, discountPrice } = product;
 
   return (
     <div className="p-4 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition">
@@ -19,12 +19,12 @@ const Product = ({ product }: TProps) => {
         <div className="w-full flex justify-center items-center">
           <img
             className="max-h-[160px] group-hover:scale-110 transition duration-300"
-            src={image}
+            src={thumbnail}
             alt={title}
           />
         </div>
         <div className="absolute top-6 -right-11 group-hover:right-5 p-2 flex flex-col items-center gap-y-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <button onClick={() => dispatch(addToCart({ id, price }))}>
+          <button onClick={() => dispatch(addToCart({ id, price: discountPrice }))}>
             <div className="flex justify-center items-center text-white w-12 h-12 bg-red-500 rounded-full">
               <BsPlus className="text-3xl" />
             </div>
@@ -46,7 +46,7 @@ const Product = ({ product }: TProps) => {
         </Link>
         <div className="text-red-500 font-semibold text-lg mb-1 inline-block">${price}</div>
         <div className="flex justify-center items-center gap-1 text-sm text-gray-600">
-          <Rating rate={rating?.rate} />
+          <Rating rate={rating} />
         </div>
       </div>
     </div>

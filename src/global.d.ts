@@ -12,10 +12,13 @@ type Product = {
   id: string;
   title: string;
   price: number;
+  discountPercentage: number;
+  discountPrice: number;
   category: string;
   description: string;
-  image: string;
-  rating: { rate: number; count: number; };
+  thumbnail: string;
+  images: string[];
+  rating: number;
 }
 
 type CartItem = {

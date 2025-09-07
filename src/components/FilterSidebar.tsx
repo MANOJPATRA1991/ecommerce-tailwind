@@ -4,6 +4,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { setFilters, updateFilteredProducts } from "../slices/products-slice";
 import { toggleFilterSidebar } from "../slices/filter-sidebar-slice";
+import { ALLOWED_CATEGORIES } from "../constants";
 
 const FilterSidebar = () => {
   const dispatch = useAppDispatch();
@@ -13,8 +14,6 @@ const FilterSidebar = () => {
   const [category, setCategory] = useState(filters.category);
   const [rating, setRating] = useState(filters.rating);
   const [sortOrder, setSortOrder] = useState(filters.sortOrder);
-
-  const categories = ["men's clothing", "women's clothing"];
 
   const applyFilters = () => {
     dispatch(setFilters({ category, rating, sortOrder }));
@@ -56,7 +55,7 @@ const FilterSidebar = () => {
             onChange={(e) => setCategory(e.target.value)}
           >
             <option value="all">All</option>
-            {categories.map((cat) => (
+            {ALLOWED_CATEGORIES.map((cat) => (
               <option key={cat} value={cat}>
                 {cat}
               </option>
