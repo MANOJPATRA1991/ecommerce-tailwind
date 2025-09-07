@@ -17,11 +17,11 @@
 - **State Management:**  
   I used Redux Toolkit to manage global state for products, filters, sidebar, and the cart list.
 - **Data Source:**  
-  Product data is fetched from a mock API or a static JSON file, which is sufficient for demo purposes and avoids backend complexity.
+  Product data is fetched from the [DummyJSON Products API](https://dummyjson.com/products), which provides a realistic mock backend for development and testing.
 - **UI/UX:**  
   The product grid is responsive, and a sticky filter/sort bar improves usability. I prioritized a clean, minimal design for clarity.
 - **Persistence:**  
-  The favorites list is persisted in local storage so users don't lose their selections on refresh.
+  The cart is persisted in local storage so users don't lose their selections on refresh.
 - **Pagination:**  
   I considered adding client-side pagination or infinite scrolling, but skipped it due to the small dataset.
 
@@ -29,22 +29,26 @@
 
 - **Pagination/Infinite Scroll:**  
   Not implemented, as the dataset is limited. With more data, this would be necessary for performance and usability.
-- **Favorites Implementation:**  
-  The "favorites" feature reuses the cart logic, which may not be ideal for a real-world app where cart and favorites are distinct concepts.
-- **Mock Data:**  
-  The app uses static/mock data. Integrating with a real backend would require additional work.
 - **Accessibility:**  
   Basic accessibility is considered, but further improvements (keyboard navigation, ARIA labels, etc.) could be made.
 
 ## Requirements Checklist
 
-- Display a list of products with image, name, price, category, and rating — **DONE**
-- Filter by category and rating — **DONE**
-- Sort by price (asc/desc) — **DONE**
-- Add to favorites — **DONE** (via cart logic)
-- Highlight favorited products — **DONE**
-- Responsive grid layout — **DONE**
-- Sticky filter/sort bar — **DONE**
-- Fetch data from mock API/JSON — **DONE**
-- State management for filters/favorites — **DONE**
-- Persist favorites in local storage — **DONE**
+- **Home Page (Product List)**
+  - Fetch and display a list of products from [https://dummyjson.com/products](https://dummyjson.com/products) — **DONE**
+  - Each product card shows image, title, price, and rating — **DONE**
+  - Clicking a product navigates to its Product Detail Page — **DONE**
+
+- **Product Details Page**
+  - Dynamic route: `/products/[id]` — **DONE**
+  - Fetch product details from [https://dummyjson.com/products/{id}](https://dummyjson.com/products/{id}) — **DONE**
+  - Display title, main image, description, price, discount percentage, and rating — **DONE**
+
+- **Cart Page**
+  - Users can add products to the cart — **DONE**
+  - Users can remove products from the cart — **DONE**
+  - Cart page displays list of added products, total item count, and total price — **DONE**
+  - Cart state persists within the session (using localStorage) — **DONE**
+
+- **Navigation**
+  - Clear navigation between Home, Product Detail, and Cart pages — **DONE**
